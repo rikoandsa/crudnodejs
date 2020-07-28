@@ -7,12 +7,21 @@ const app = express();
 // insialisasi engine hbs
 const hbs = require("hbs");
 
-
-// menjalankan server di port 4000/github.com/riku-and-sa/crudnodejs.git
-   a532b73..fac7e2e  master -> master
-   riko@riko-X450CA:~/learn/crudnodejs
+//
 app.listen(4000, () => {
   console.log("Server berjalan di 127.0.0.1:4000");
 });
 
+// membuat koneksi database
+const conn = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "",
+  database: "crudjs",
+});
 
+// koneksi ke database
+conn.connect((err) => {
+  if (err) throw err;
+  console.log("Database terkoneksi");
+});
